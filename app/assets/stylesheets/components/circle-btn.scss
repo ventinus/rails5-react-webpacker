@@ -1,0 +1,28 @@
+.circle-btn {
+  @extend .type-bold-cond--1;
+  width: 215px;
+  height: 215px;
+  background-color: rgba($white, 0.1);
+  border-radius: 50%;
+  text-align: center;
+  color: $white;
+
+  img { display: inline-block; }
+}
+
+.circle-btn--backspace {
+  img {
+    width: 110px;
+    margin-top: -20px;
+  }
+}
+.circle-btn--done {
+  img {
+    width: 65px;
+    margin-top: -10px;
+  }
+}
+.circle-btn--done-invalid {}
+.circle-btn--done-valid {
+  background-color: $green;
+}

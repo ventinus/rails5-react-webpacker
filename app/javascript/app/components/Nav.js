@@ -68,7 +68,8 @@ class Nav extends Component {
       case '/phone':
         return 'Enter Phone Number'
       case '/profile':
-        return `Welcome ${props.user.firstName}`
+        return `Welcome Schmuck`
+        // return `Welcome ${props.user.firstName}`
       default:
         return 'Sign In Here for Classes'
     }
