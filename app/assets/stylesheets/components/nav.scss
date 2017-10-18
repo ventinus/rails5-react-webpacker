@@ -1,0 +1,22 @@
+.nav {
+  background-color: $white;
+  height: $nav-height-kiosk;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav__logo-btn {
+  width: 285px;
+  display: flex;
+  height: 100%;
+  border-right: 1px solid rgba($gray-medium, 0.3)
+}
+
+.nav__logo-btn__logo {
+  margin: 0 auto;
+}
+
+.nav__main {
+  padding-left: 60px;
+}

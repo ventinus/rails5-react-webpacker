@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  get '/' => 'pages#index'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :api, defaults: { format: :json } do
+    resources :users, only: [ :index, :show ]
+    resources :instructors, only: [ :index, :show ]
+    resources :courses, only: [ :index, :show ]
+    resources :locations, only: [ :index, :show ]
+  end
+
+
+  get '/' => 'pages#index'
+  get '/:page' => 'pages#index'
 end

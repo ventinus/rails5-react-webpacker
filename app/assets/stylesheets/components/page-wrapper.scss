@@ -1,0 +1,12 @@
+.page-wrapper {
+  // resets from core
+  opacity: 1 !important;
+  transition-duration: 0s !important;
+
+  height: calc(100% - #{$nav-height-kiosk});
+  overflow-y: scroll;
+}
+
+.page-wrapper .page-wrapper__section + .page-wrapper__section {
+  border-top: 1px solid rgba($white, 0.3)
+}

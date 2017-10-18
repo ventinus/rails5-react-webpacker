@@ -1,0 +1,31 @@
+.scan {
+  width: 580px;
+  margin: 0 auto;
+  padding: 240px 0;
+}
+
+.scan__barcode {
+  width: 265px;
+  display: block;
+  margin: 0 auto;
+}
+
+.scan__text {
+  color: $white;
+  margin-top: 60px;
+}
+
+.scan__arrow {
+  display: block;
+  width: 60px;
+  margin: 50px auto 0;
+}
+
+
+.scan--alternate {
+  padding: 100px 140px;
+}
+
+.scan--alternate__copy {
+  margin-top: 85px;
+}
