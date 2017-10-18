@@ -57,12 +57,17 @@ class PhoneInput extends Component {
             </div>
           )}
         </div>
-        <Link to="/" className=''>CANCEL</Link>
+        <div className="type--center">
+          <Link to="/" className='type-light--2 type--white'>CANCEL</Link>
+        </div>
       </div>
     )
   }
 
-  _getNums = str => str.match(/\d+/g).join('')
+  _getNums = str => {
+    const match = str.match(/\d+/g)
+    return !match ? '' : match.join('')
+  }
 
   _genDoneModifiers = () => {
     const mods = this.state.isValid ? ['done-valid'] : ['done-invalid']
@@ -71,11 +76,18 @@ class PhoneInput extends Component {
   }
 
   _setCurrentFormat = () => {
-    const numsLength = this._getNums(this.formatter.currentOutput_).length
+    const nums = this._getNums(this.formatter.currentOutput_)
+    const numsLength = nums.length
+    let isValid
+    if (nums.charAt(0) === '1') {
+      isValid = numsLength === 11
+    } else {
+      isValid = numsLength === 7 || numsLength === 10
+    }
 
     this.setState({
-      phoneVal: this.formatter.currentOutput_,
-      isValid: numsLength === 7 || numsLength === 10
+      isValid,
+      phoneVal: this.formatter.currentOutput_
     })
   }
 

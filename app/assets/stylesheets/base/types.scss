@@ -18,11 +18,13 @@
 .type-reg--1 { @include font-size(36); }
 
 // light font
-.type-light--1 {
+.type-light--1,
+.type-light--2 {
   @extend %font-light;
 }
 
 .type-light--1 { @include font-size(24); }
+.type-light--2 { @include font-size(30); }
 
 
 // bold font
