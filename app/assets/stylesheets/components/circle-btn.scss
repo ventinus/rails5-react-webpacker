@@ -13,16 +13,19 @@
 .circle-btn--backspace {
   img {
     width: 110px;
-    margin-top: -20px;
+    margin: -18px 0 0 -10px;
   }
 }
+
 .circle-btn--done {
   img {
     width: 65px;
     margin-top: -10px;
   }
 }
+
 .circle-btn--done-invalid {}
+
 .circle-btn--done-valid {
   background-color: $green;
 }
