@@ -44,21 +44,24 @@ class PhoneInput extends Component {
   render() {
     return (
       <div>
-        <p className='type--white type-bold--1'>{this.state.phoneVal}</p>
-        <div className="phone-pad">
-          {this._numberPad.map((data, i) =>
-            <div className="phone-pad__item" key={i}>
-              <CircleBtn
-                onClick={data.onClick || this._onNumberClick(i)}
-                modifiers={data.modifiers ? data.modifiers() : []}
-                >
-                {data.val}
-              </CircleBtn>
-            </div>
-          )}
-        </div>
-        <div className="type--center">
-          <Link to="/" className='type-light--2 type--white'>CANCEL</Link>
+        <div className="phone">
+          <p className='phone__number-output type--white type--center type-bold-cond--3'>{this.state.phoneVal}</p>
+          <p className="phone__info type--white type--center type-light--2">{`Enter the Phone Number associated with your\nCrunch Membership`}</p>
+          <div className="phone-pad">
+            {this._numberPad.map((data, i) =>
+              <div className="phone-pad__item" key={i}>
+                <CircleBtn
+                  onClick={data.onClick || this._onNumberClick(i)}
+                  modifiers={data.modifiers ? data.modifiers() : []}
+                  >
+                  {data.val}
+                </CircleBtn>
+              </div>
+            )}
+          </div>
+          <div className="phone__cancel type--center">
+            <Link to="/" className='type-light--2 type--white'>CANCEL</Link>
+          </div>
         </div>
       </div>
     )
