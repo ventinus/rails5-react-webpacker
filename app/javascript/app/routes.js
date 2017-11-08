@@ -1,3 +1,4 @@
+// import Relay from 'react-relay'
 import {
   Home,
   PhoneInput,
@@ -7,11 +8,16 @@ import {
   Success
 } from './containers'
 
+// const UserQueries = {
+//   users: () => Relay.QL`query { users }`
+// }
+
 const routes = [
   {
     exact: true,
     path: '/',
-    component: Home
+    component: Home,
+    // queries: UserQueries
   }, {
     path: '/phone',
     component: PhoneInput,
@@ -25,11 +31,13 @@ const routes = [
     component: Profile
   }, {
     path: '/success',
-    component: Success
+    component: Success,
+    hideNav: true
   }, {
     path: '/notification',
     component: Notification,
-    darkPage: true
+    darkPage: true,
+    hideNav: true
   }
 ]
 

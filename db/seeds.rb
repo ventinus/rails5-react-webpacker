@@ -3,7 +3,7 @@ User.delete_all
 Course.delete_all
 Instructor.delete_all
 Location.delete_all
-
+Reservation.delete_all
 
 puts 'Creating Users'
 100.times do
@@ -13,7 +13,6 @@ puts 'Creating Users'
     phone_number: Faker::PhoneNumber.phone_number
   })
 end
-
 
 puts 'Creating Courses'
 20.times do |n|
@@ -38,4 +37,14 @@ puts 'Creating Locations'
   Location.create!({
     name: Faker::Address.street_name
   })
+end
+
+puts 'Creating Reservations'
+User.all.each do |user|
+  5.times do
+    Reservation.create!({
+      user: user,
+      course: Course.order("RAND()").first
+    })
+  end
 end

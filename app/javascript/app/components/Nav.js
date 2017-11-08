@@ -8,6 +8,7 @@ import logo from 'logo.svg'
 import restartLogo from 'logo--restart.svg'
 
 const darkPages = routes.filter(r => r.darkPage).map(r => r.path)
+const navHiddenPages = routes.filter(r => r.hideNav).map(r => r.path)
 
 class Nav extends Component {
   constructor(props) {
@@ -28,10 +29,10 @@ class Nav extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.location.pathname !== nextProps.location.pathname) {
+    // if (this.props.location.pathname !== nextProps.location.pathname) {
       this._setBodyStyle(nextProps)
       this.setState({message: this._getMessage(nextProps)})
-    }
+    // }
   }
 
   componentWillUnmount() {
@@ -40,6 +41,8 @@ class Nav extends Component {
 
   render() {
     const currentPage = this.props.location.pathname
+
+    if (navHiddenPages.includes(currentPage)) return null
 
     return (
       <div className='nav'>
@@ -68,8 +71,8 @@ class Nav extends Component {
       case '/phone':
         return 'Enter Phone Number'
       case '/profile':
-        return `Welcome Schmuck`
-        // return `Welcome ${props.user.firstName}`
+        // return `Welcome Schmuck`
+        return `Welcome ${props.user.first_name}`
       default:
         return 'Sign In Here for Classes'
     }

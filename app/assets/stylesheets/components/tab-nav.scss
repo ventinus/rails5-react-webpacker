@@ -1,0 +1,15 @@
+.tab-nav {}
+
+.tab-nav__header {
+  padding: 45px;
+}
+
+.tab-nav__header__btn {
+  display: inline-block;
+  & + .tab-nav__header__btn { margin-left: 40px; }
+}
+
+.tab-nav__body {
+  border-top: 1px solid rgba($white, 0.7);
+  padding: 100px 70px;
+}

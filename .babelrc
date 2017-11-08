@@ -11,11 +11,17 @@
         "useBuiltIns": true
       }
     ],
+    {
+      "plugins": [
+        ["relay", {"schema": "schema.json"}]
+      ]
+    },
     "react"
   ],
   "plugins": [
     "syntax-dynamic-import",
     "transform-object-rest-spread",
+    "relay",
     [
       "transform-class-properties",
       {

@@ -7,19 +7,26 @@
   border-radius: 100px;
 }
 
+.capsule--xs {
+  padding: 17px 50px;
+}
+
 .capsule--sm {
   padding: 25px 45px;
 }
+
 .capsule--md {
   width: 415px;
   padding: 35px 0;
 }
+
 .capsule--lg {
   width: 685px;
   padding: 40px 0;
   margin-left: auto;
   margin-right: auto;
 }
+
 .capsule--xl {
   width: 825px 0;
   padding: 40px 0;
@@ -40,3 +47,5 @@
 .capsule--transparent { background-color: transparent; }
 .capsule--green { background-color: $green; }
 .capsule--purple { background-color: $purple-kiosk; }
+
+.capsule--no-width { width: auto; }

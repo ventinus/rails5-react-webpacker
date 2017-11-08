@@ -4,13 +4,15 @@
 // bold condensed font
 .type-bold-cond--1,
 .type-bold-cond--2,
-.type-bold-cond--3 {
+.type-bold-cond--3,
+.type-bold-cond--4 {
   @extend %font-bold-cond;
 }
 
 .type-bold-cond--1 { @include font-size(100); }
 .type-bold-cond--2 { @include font-size(60); }
 .type-bold-cond--3 { @include font-size(110); }
+.type-bold-cond--4 { @include font-size(40); }
 
 // regular font
 .type-reg--1 {

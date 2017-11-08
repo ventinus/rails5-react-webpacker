@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const Capsule = ({text, to = '', modifiers = [], textClass = '', onClick = () => {}, children}) => {
+// can behave as a button or a link
+const Capsule = ({to = '', modifiers = [], onClick = () => {}, children}) => {
   const extraClass = modifiers.reduce((a, c) => `${a} capsule--${c}`, '').trim()
 
   return to.length > 0

@@ -1,0 +1,2 @@
+query_string = "query UserQuery { allUsers { first_name } }"
+CrunchKioskSchema.execute(query_string)

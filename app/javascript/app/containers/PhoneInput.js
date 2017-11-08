@@ -111,7 +111,7 @@ class PhoneInput extends Component {
   _onDoneClick = () => {
     if (this.state.isValid) {
       console.log('run query for', this._getNums(this.state.phoneVal))
-      this.props.history.push('/profile')
+      this.props.history.push('/profile', {user: window.user})
     }
   }
 }

@@ -1,0 +1,22 @@
+.notification {
+  width: 685px;
+  margin: 575px auto 0;
+  text-align: center;
+}
+
+.notification__icon {
+  width: 220px;
+  margin: 0 auto;
+}
+
+.notification__error {
+  margin-top: 25px;
+}
+
+.notification__description:first-child {
+  margin-top: 25px;
+}
+
+.notification__btn {
+  margin-top: 260px;
+}
