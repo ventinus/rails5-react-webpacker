@@ -1,4 +1,6 @@
 export {default as Capsule} from './Capsule'
 export {default as CircleBtn} from './CircleBtn'
+export {default as ClassesList} from './ClassesList'
+export {default as ClassRow} from './ClassRow'
 export {default as TabNav} from './TabNav'
 export {default as Nav} from './Nav'

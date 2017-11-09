@@ -1,6 +1,8 @@
 .type--purple { color: $purple-kiosk; }
 .type--gray { color: $gray-medium; }
 
+.type--faded-50 { opacity: 0.5; }
+
 // bold condensed font
 .type-bold-cond--1,
 .type-bold-cond--2,
@@ -15,11 +17,13 @@
 .type-bold-cond--4 { @include font-size(40); }
 
 // regular font
-.type-reg--1 {
+.type-reg--1,
+.type-reg--2 {
   @extend %font-regular;
 }
 
 .type-reg--1 { @include font-size(36); }
+.type-reg--2 { @include font-size(30); }
 
 // light font
 .type-light--1,

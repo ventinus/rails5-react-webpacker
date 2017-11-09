@@ -1,0 +1,13 @@
+.class-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  & + .class-row {
+    margin-top: 25px;
+  }
+}
+
+.class-row__left {
+  flex: 0 0 220px;
+}
