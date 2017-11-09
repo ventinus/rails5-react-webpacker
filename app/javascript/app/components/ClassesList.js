@@ -7,6 +7,7 @@ class ClassesList extends Component {
     data: []
   }
 
+  // for some reason both versions are being rendered to the same component, so states need to be namespaced
   state = {
     reservations: {
       activeIndices: []
