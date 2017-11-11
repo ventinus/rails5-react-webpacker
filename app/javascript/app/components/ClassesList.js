@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import m from 'moment'
-import {ClassRow} from '.'
+import {forEach} from 'lodash'
+import {ClassRow, Capsule} from '.'
 
 class ClassesList extends Component {
   static defaultProps = {
@@ -14,14 +15,33 @@ class ClassesList extends Component {
     },
     classes: {
       activeIndices: []
-    }
+    },
+    btnsHeight: 0
   }
 
   _dates = this.props.data.map(d => m(d.start_time))
 
-  constructor(props) {
-    super(props)
-    console.log('constructor')
+  _refs = {}
+
+  // constructor(props) {
+  //   super(props)
+  //   console.log('constructor')
+  // }
+
+  componentDidMount() {
+    const btnsWrappers = document.querySelectorAll('.js-classes-btns')
+
+    const btnsLength = btnsWrappers.length
+    console.log(btnsLength)
+    if (btnsLength === 0) return
+
+    const lastBtnsEl = btnsWrappers[btnsLength - 1]
+
+    lastBtnsEl.style.display = 'flex'
+    // const btnsHeight = lastBtnsEl.offsetHeight
+    // lastBtnsEl.style.height = ''
+    console.log(lastBtnsEl.offsetHeight)
+    this.setState({btnsHeight: lastBtnsEl.offsetHeight})
   }
 
   render() {
@@ -38,6 +58,11 @@ class ClassesList extends Component {
             <div
               className="classes-list__item__main"
               onClick={this._onItemClick(i)}
+              ref={node => this._refs[`mains-${i}`] = node}
+              style={{
+                marginBottom: activeIndices.includes(i) ? 0 : `-${this.state.btnsHeight}px`,
+                transitionDuration: this.state.btnsHeight === 0 ? 0 : '300ms'
+              }}
             >
               <div className="classes-list__item__main__left"></div>
               <div className="classes-list__item__main__right">
@@ -63,8 +88,19 @@ class ClassesList extends Component {
               </div>
             </div>
             {type === 'classes' &&
-              <div className="classes-list__item__btns">
-
+              <div className="classes-list__item__btns js-classes-btns" style={{display: this.state.btnsHeight !== 0 ? 'flex' : 'none'}}>
+                <Capsule
+                  onClick={() => {console.log(i)}}
+                  modifiers={['sm']}
+                >
+                  <p className="type-reg--2 type--uppercase">Cancel</p>
+                </Capsule>
+                <Capsule
+                  onClick={() => {console.log(i)}}
+                  modifiers={['sm', 'green']}
+                >
+                  <p className="type-reg--2 type--uppercase">Register</p>
+                </Capsule>
               </div>
             }
           </div>
@@ -80,9 +116,20 @@ class ClassesList extends Component {
       ? activeIndices.slice(0, index).concat(activeIndices.slice(index + 1))
       : activeIndices.concat(i)
 
+    // this._toggleBtnsHeight(i)
+
     this.setState({[this.props.type]: {activeIndices: nextActiveIndices}})
     this.props.onItemClick(i)
   }
+
+  // _toggleBtnsHeight = i => {
+  //   const {activeIndices} = this.state[this.props.type]
+  //   const container = this._refs[`mains-${i}`]
+  //   if (!container) return
+
+  //   console.log(activeIndices.includes(i))
+
+  // }
 
 }
 

@@ -15,7 +15,8 @@
   align-items: stretch;
   border-radius: 20px;
   background-color: $white;
-  transition: $default-animation
+  transition: $default-animation;
+  position: relative;
 }
 
 .classes-list__item__main__left {
@@ -29,7 +30,35 @@
   transition: $default-animation;
 }
 
-.classes-list__item__btns {}
+.classes-list__item__btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $white;
+  border-radius: 0 0 20px 20px;
+  padding: 70px 65px 55px;
+  margin-top: -15px;
+  z-index: -1;
+  position: relative;
+  overflow: hidden;
+  // height: 0;
+  // transition: $default-animation;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba($purple-kiosk, 0.9);
+  }
+
+  & > * {
+    flex: 0.46;
+  }
+}
 
 
 .classes-list--reservations {
@@ -46,7 +75,7 @@
 
 .classes-list--classes {
   .classes-list__item {
-    &:not(.not-available):before {
+    &:not(.not-available) .classes-list__item__main:before {
       content: '';
       position: absolute;
       right: 40px;
@@ -60,7 +89,7 @@
       border-right: 5px solid $purple-kiosk;
       transition: $default-animation;
     }
-    &.not-available:after {
+    &.not-available .classes-list__item__main:after {
       content: '';
       position: absolute;
       top: 0;
@@ -72,7 +101,7 @@
     }
 
     &.is-active {
-      &:before {
+      .classes-list__item__main:before {
         border-bottom-color: $white;
         border-right-color: $white;
         transform: translateY(-50%) rotate(-135deg);

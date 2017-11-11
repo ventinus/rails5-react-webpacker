@@ -7,10 +7,16 @@ class Profile extends Component {
     selectedReservationIds: []
   }
 
+  constructor(props) {
+    super(props)
+    // this.user = props.location.state.user
+    // this.courses = window.courses
+  }
+
   render() {
     const user = window.user
     const courses = window.courses
-    console.log(courses)
+    // console.log(courses)
 
     // theoretically, this wont be needed in production because we wont be trying to render this page until data is present
     if (!courses) return null
@@ -57,7 +63,7 @@ class Profile extends Component {
     return (
       <div className="print-cta">
         <Capsule
-          onClick={() => {console.log('click print', this.state.selectedReservationIds)}}
+          onClick={this._onPrintClick}
           modifiers={['green', 'lg', 'no-width']}
         >
           <p className="type-bold--1">{`Print Tickets (${this.state.selectedReservationIds.length})`}</p>
@@ -79,6 +85,10 @@ class Profile extends Component {
 
   _onClassClick = (index) => {
     console.log('class click', index)
+  }
+
+  _onPrintClick = () => {
+    console.log('click print', this.state.selectedReservationIds)
   }
 }
 

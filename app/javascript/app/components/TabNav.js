@@ -4,7 +4,7 @@ import {Capsule} from '.'
 
 class TabNav extends Component {
   static defaultProps = {
-    selectedIndex: 0
+    selectedIndex: 1
   }
 
   state = {
